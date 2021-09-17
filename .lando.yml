@@ -19,7 +19,7 @@ services:
   appserver:
     type: php:7.4
     build:      
-      - cd /app/docroot && composer install && composer require drush/drush
+      - cd /app/docroot && composer install 
     xdebug: true
     overrides:
       environment:
@@ -70,7 +70,7 @@ tooling:
     service: appserver
     description: Run drush commands
     cmd: /app/docroot/vendor/bin/drush
-  module:
-   service: appserver
-   description: Install drupal modules (e.g. lando module drupal/admin_toolbar)
-   cmd: composer require
+  drush-install:
+    service: appserver
+    descriptiom: Drush install
+    cmd: cd /app/docroot && composer require drush/drush

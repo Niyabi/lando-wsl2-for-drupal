@@ -1,5 +1,6 @@
 # lando-wsl2-for-drupal
-Local developement environment for Drupal 9 based on Lando and WSL2
+Local developement environment for Drupal 9 based on Lando and WSL2.
+Project is based on this **[article](https://www.liip.ch/en/blog/setup-drupal-and-lando-with-wsl2-on-windows)**.
 
 ## Requirements
 
@@ -12,16 +13,22 @@ Here is **[article](https://www.liip.ch/en/blog/setup-drupal-and-lando-with-wsl2
 
 ## Drupal 9 installation
 Go to *docroot* directory and install Drupal 9 using composer
-
 ```bash
 lando start
 lando composer create-project drupal/recommended-project ./
 ```
 
 ## Module instalation
-Just run (e.g. lando module drupal/admin_toolbar)
+Go to *docroot* directory and 
 ```bash
-lando module drupal/module_name
+lando composer require drupal/module_name
+```
+e.g. lando composer require drupal/admin_toolbar
+
+## Drush installation
+To install drush run command
+```bash
+lando drush-install
 ```
 
 ## Drush
