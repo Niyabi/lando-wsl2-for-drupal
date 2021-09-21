@@ -1,0 +1,5 @@
+{
+    "phpcs.composerJsonPath": "docroot/composer.json",
+    "phpcs.standard": "Drupal",
+    "phpcs.executablePath": "/home/{username}/.composer/vendor/bin/phpcs"
+}

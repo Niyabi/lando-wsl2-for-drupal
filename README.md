@@ -1,5 +1,5 @@
 # lando-wsl2-for-drupal
-Local developement environment for Drupal 9 based on Lando and WSL2.
+Local developement environment for Drupal 9 based on Lando and WSL2. </br>
 Project is based on this **[article](https://www.liip.ch/en/blog/setup-drupal-and-lando-with-wsl2-on-windows)**.
 
 ## Requirements
@@ -36,6 +36,23 @@ To use drush run command
 ```bash
 lando drush your_command
 ``` 
+
+## PHP Code Sniffer for VS Code
+Requires:
+* php >= 7.0.8
+* php extension *mbstring* 
+* *Composer* (version 2 would be the best),
+* *[phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)* extension for VS Code.
+
+
+</br>
+First install phpcs executable and Drupal standard globally
+
+```bash
+composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
+```
+
+In *.vscode* directory in project edit *settings.json*, line *phpcs.executablePath* and change *{username}* to your username in WSL.
 
 ## Commands
 * Start / build lando
