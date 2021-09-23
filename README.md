@@ -14,27 +14,27 @@ Here is **[article](https://www.liip.ch/en/blog/setup-drupal-and-lando-with-wsl2
 ## Drupal 9 installation
 Go to *docroot* directory and install Drupal 9 using composer
 ```bash
-lando start
-lando composer create-project drupal/recommended-project ./
+$ lando start
+$ lando composer create-project drupal/recommended-project ./
 ```
 
 ## Module instalation
 Go to *docroot* directory and 
 ```bash
-lando composer require drupal/module_name
+$ lando composer require drupal/module_name
 ```
 e.g. lando composer require drupal/admin_toolbar
 
 ## Drush installation
 To install drush run command
 ```bash
-lando drush-install
+$ lando drush-install
 ```
 
 ## Drush
 To use drush run command
 ```bash
-lando drush your_command
+$ lando drush your_command
 ``` 
 
 ## PHP Code Sniffer and PHP Code Beautifier and Fixer for VS Code
@@ -54,14 +54,14 @@ Requirements:
 First install phpcs executable and Drupal standard globally
 
 ```bash
-composer global require squizlabs/php_codesniffer drupal/coder dealerdirect/phpcodesniffer-composer-installer
+$ composer global require squizlabs/php_codesniffer drupal/coder dealerdirect/phpcodesniffer-composer-installer
 ```
 
 Then add Drupal standard to phpcs
 
 ```bash
-cd ~/.composer/vendor
-bin/phpcs --config-set installed_paths drupal/coder/coder_sniffer/
+$ cd ~/.composer/vendor
+$ bin/phpcs --config-set installed_paths drupal/coder/coder_sniffer/
 ```
 
 Then install VS Code extensions. In *.vscode* directory in project edit *settings.json*, lines:
@@ -81,7 +81,7 @@ Requirements:
 First install twigcs executable 
 
 ```bash
-composer global require friendsoftwig/twigcs
+$ composer global require friendsoftwig/twigcs
 ```
 
 Then install VS Code extension. In *.vscode* directory in project edit *settings.json*, line *twigcs.executablePath* and change *{username}* to your username in WSL.
@@ -89,33 +89,33 @@ Then install VS Code extension. In *.vscode* directory in project edit *settings
 ## Commands
 * Start / build lando
 ```bash
-lando start
+$ lando start
 ```
 * Stop lando
 ```bash
-lando stop
+$ lando stop
 ```
 * Rebuild lando app
 ```bash
-lando rebuild
+$ lando rebuild
 ```
 * Destroy app (containers, databse, NOT FILES!)
 ```bash
-lando destroy
+$ lando destroy
 ```
 * Import database
 ```bash
-lando db-import path/to/file.sql
+$ lando db-import path/to/file.sql
 ```
 * Connect to container's shell 
 ```bash
-lando ssh
+$ lando ssh
 ```
 * Enable xdebug
 ```bash
-lando xdebug-on
+$ lando xdebug-on
 ```
 * Disable xdebug
 ```bash
-lando xdebug-off
+$ lando xdebug-off
 ```
