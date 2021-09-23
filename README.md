@@ -37,8 +37,7 @@ To use drush run command
 lando drush your_command
 ``` 
 
-## PHP Code Sniffer and PHP Code Beautifier and Fixer
- for VS Code
+## PHP Code Sniffer and PHP Code Beautifier and Fixer for VS Code
 Requirements:
 * php >= 7.0.8
 * php extension *mbstring* 
