@@ -37,22 +37,55 @@ To use drush run command
 lando drush your_command
 ``` 
 
-## PHP Code Sniffer for VS Code
-Requires:
+## PHP Code Sniffer and PHP Code Beautifier and Fixer
+ for VS Code
+Requirements:
 * php >= 7.0.8
 * php extension *mbstring* 
-* *Composer* (version 2 would be the best),
-* *[phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)* extension for VS Code.
+* Composer v2
+* Composer packages: 
+    * squizlabs/php_codesniffer
+    * drupal/coder
+    * dealerdirect/phpcodesniffer-composer-installer
+* *[phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)* extension for VS Code,
+* *[PHP Sniffer & Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab)* extension for VS Code.
 
 
 </br>
 First install phpcs executable and Drupal standard globally
 
 ```bash
-composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer
+composer global require squizlabs/php_codesniffer drupal/coder dealerdirect/phpcodesniffer-composer-installer
 ```
 
-In *.vscode* directory in project edit *settings.json*, line *phpcs.executablePath* and change *{username}* to your username in WSL.
+Then add Drupal standard to phpcs
+
+```bash
+cd ~/.composer/vendor
+bin/phpcs --config-set installed_paths drupal/coder/coder_sniffer/
+```
+
+Then install VS Code extensions. In *.vscode* directory in project edit *settings.json*, lines:
+* phpcs.executablePath
+* phpsab.executablePathCBF
+* phpsab.executablePathCS
+
+and change *{username}* to your username in WSL.
+
+## Twig Code Sniffer
+Requirements:
+* php >= 7.0.8 
+* Composer v2
+* Composer package: friendsoftwig/twigcs
+
+</br>
+First install twigcs executable 
+
+```bash
+composer global require friendsoftwig/twigcs
+```
+
+Then install VS Code extension. In *.vscode* directory in project edit *settings.json*, line *twigcs.executablePath* and change *{username}* to your username in WSL.
 
 ## Commands
 * Start / build lando
