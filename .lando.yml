@@ -1,4 +1,4 @@
-name: demo
+name: drupal
 recipe: drupal9
 config:
   webroot: docroot/web
@@ -14,12 +14,18 @@ config:
 proxy:
   fulltext:
     - admin.solr.fulltext.lndo.site:8983
+  mailhog:
+    - mailhog.lndo.site
+  phpmyadmin:
+    - pma.lndo.site
 
 services:
   appserver:
     type: php:7.4
-    build:      
-      - cd /app/docroot && composer install 
+    build_as_root:      
+      - apt update -y -q && apt install -y cron
+    run_as_root:
+      - service cron start
     xdebug: true
     overrides:
       environment:
@@ -27,7 +33,7 @@ services:
         PHP_IDE_CONFIG: "serverName=appserver"
         LANDO_HOST_IP: "host.docker.internal"
         XDEBUG_CONFIG: "remote_enable=1 remote_host=host.docker.internal"
-        DRUSH_OPTIONS_URI: "https://demo.lndo.site"
+        DRUSH_OPTIONS_URI: "https://drupal.lndo.site"
 
   database:
     # You can connect externally via "external_connection" info from `lando info`.
@@ -38,6 +44,12 @@ services:
       user: drupal
       password: drupal
       database: drupal
+
+  node:
+    type: node:13
+    ssl: false
+    globals:
+      gulp-cli: latest
 
   fulltext:
     type: solr:8.4
@@ -50,6 +62,18 @@ services:
     type: memcached
     portforward: false
     mem: 256
+
+  mailhog:
+    type: mailhog
+    portforward: 1025
+    hogfrom:
+      - appserver
+  
+  phpmyadmin:
+    type: phpmyadmin
+    postforward: true
+    hosts:
+      - database
 
 tooling:
   phpunit-local:
@@ -74,3 +98,9 @@ tooling:
     service: appserver
     descriptiom: Drush install
     cmd: cd /app/docroot && composer require drush/drush
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
