@@ -71,7 +71,7 @@ services:
   
   phpmyadmin:
     type: phpmyadmin
-    postforward: true
+    portforward: true
     hosts:
       - database
 
