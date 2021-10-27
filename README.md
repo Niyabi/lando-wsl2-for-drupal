@@ -60,6 +60,7 @@ Requirements:
   * dealerdirect/phpcodesniffer-composer-installer
 * *[phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)* extension for VS Code,
 * *[PHP Sniffer & Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab)* extension for VS Code.
+* Copy *sample.vscode* directory as *.vscode*
 
 </br>
 First install phpcs executable and Drupal standard globally
@@ -90,6 +91,7 @@ Requirements:
 * php >= 7.0.8
 * Composer v2
 * Composer package: friendsoftwig/twigcs
+* Copy *sample.vscode* directory as *.vscode*
 
 </br>
 First install twigcs executable
