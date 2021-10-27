@@ -72,7 +72,7 @@ composer global require squizlabs/php_codesniffer drupal/coder dealerdirect/phpc
 Then add Drupal standard to phpcs
 
 ```bash
-cd ~/.composer/vendor
+cd ~/.config/composer/vendor
 bin/phpcs --config-set installed_paths drupal/coder/coder_sniffer/
 ```
 
