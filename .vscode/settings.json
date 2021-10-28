@@ -1,9 +1,0 @@
-{
-    "phpcs.composerJsonPath": "docroot/composer.json",
-    "phpcs.standard": "Drupal",
-    "phpcs.executablePath": "/home/{username}/.composer/vendor/bin/phpcs",
-    "phpsab.executablePathCBF": "/home/{username}/.composer/vendor/bin/phpcbf",
-    "phpsab.executablePathCS" : "/home/{username}/.composer/vendor/bin/phpcs",
-    "phpsab.standard" : "Drupal",
-    "twigcs.executablePath": "/home/{username}/.composer/vendor/bin/twigcs",
-}
