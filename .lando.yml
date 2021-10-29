@@ -12,8 +12,8 @@ config:
     php: config/php.ini
 
 proxy:
-  fulltext:
-    - admin.solr.fulltext.lndo.site:8983
+  # fulltext:
+  #   - admin.solr.fulltext.lndo.site:8983
   mailhog:
     - mailhog.lndo.site
   phpmyadmin:
@@ -51,17 +51,17 @@ services:
     globals:
       gulp-cli: latest
 
-  fulltext:
-    type: solr:8.4
-    portforward: true
-    core: fulltext_index
-    config:
-      dir: solr/conf
+  # fulltext:
+  #   type: solr:8.4
+  #   portforward: true
+  #   core: fulltext_index
+  #   config:
+  #     dir: solr/conf
 
-  memcached:
-    type: memcached
-    portforward: false
-    mem: 256
+  # memcached:
+  #   type: memcached
+  #   portforward: false
+  #   mem: 256
 
   mailhog:
     type: mailhog
